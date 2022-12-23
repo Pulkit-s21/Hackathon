@@ -1,4 +1,6 @@
 import './style.css'
+import './star'
+import './carousel'
 
 const openMenu = document.getElementById("openMenu")
 const closeMenu = document.getElementById("closeMenu")
