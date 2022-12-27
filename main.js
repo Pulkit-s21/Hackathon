@@ -1,6 +1,8 @@
 import './style.css'
 import './star'
 import './carousel'
+import './toggle'
+import './scrollMagic'
 
 const openMenu = document.getElementById("openMenu")
 const closeMenu = document.getElementById("closeMenu")

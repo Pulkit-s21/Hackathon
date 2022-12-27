@@ -1,5 +1,14 @@
 @tailwind base;
 @tailwind components;
+
+.companies{
+  @apply w-16 md:w-24 hover:scale-110 hover:rotate-2 transition-all duration-700 cursor-pointer
+}
+
+.footer-links{
+  @apply text-lg text-gray-200 hover:text-xl cursor-pointer transition-all duration-300
+}
+
 @tailwind utilities;
 
 :root{
@@ -114,15 +123,15 @@ select {
 }
 
 .card1{
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1),rgba(0, 0, 0, 0.5)) ,  url(./images/fast.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)) ,  url(./images/fast.jpg);
 }
 
 .card2{
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1),rgba(0, 0, 0, 0.5)) ,  url(./images/safe.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)) ,  url(./images/safe.jpg);
 }
 
 .card3{
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1),rgba(0, 0, 0, 0.5)) ,  url(./images/live.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)) ,  url(./images/live.jpg);
 }
 
 /* ! Animation not working..Do check this  */
