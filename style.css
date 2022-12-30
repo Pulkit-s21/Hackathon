@@ -190,3 +190,47 @@ select {
 .magic-star > svg > path{
     fill: var(---purple);
 } 
+
+
+/* ? ScrollMagic CSS */
+
+.section2 .card1.slide-in,
+.section2 .card2.slide-in,
+.section2 .card3.slide-in{
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.section2.fade-in,
+.section4 h3.fade-in,
+.section4 p.fade-in,
+.section5.fade-in,
+.section6 h3.fade-in,
+.section6 img.fade-in,
+.section7 h3.fade-in,
+.section7 p.fade-in,
+.section7 .accordian.fade-in,
+.grow h3.fade-in,
+.grow p.fade-in,
+.grow .btn.fade-in,
+.section9 h2.fade-in,
+.section9 h4.fade-in,
+.section9 p.fade-in{
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.section3 img.slide-in,
+.section3 h3.slide-in,
+.section3 p.slide-in,
+.section3 .btn.slide-in{
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.section4 .road.slide-in,
+.section4 .sea.slide-in,
+.section4 .sky.slide-in{
+  opacity: 1;
+  transform: translateX(0);
+}
