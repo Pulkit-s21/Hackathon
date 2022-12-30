@@ -3,6 +3,7 @@ import './star'
 import './carousel'
 import './toggle'
 import './scrollMagic'
+import './geoLocation'
 
 const openMenu = document.getElementById("openMenu")
 const closeMenu = document.getElementById("closeMenu")

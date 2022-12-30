@@ -7,7 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Package Tracking | Hackathon</title>
   </head>
-  <body>
+  <body class="
+  dark:bg-neutral-900
+  overflow-x-hidden
+  ">
 
     <!-- * NavBar -->
     <nav class="
@@ -161,7 +164,7 @@
           rounded-md
           px-8
           py-2
-          " href="#">Login</a>
+          " href="./login.html">Login</a>
 
          <!-- sun -->
          <svg class="dark:text-white sun w-8 h-8 cursor-pointer" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -185,7 +188,7 @@
         card section1 
         min-h-screen
         text-white
-        p-2
+        p-3
         md:px-12
         gap-6
         flex
@@ -232,6 +235,7 @@
               "></i>
     
               <input class="
+              trackingNum
               py-1
               lg:px-4
               flex
@@ -307,6 +311,7 @@
       <!-- * Section 2..Good things -->
       <section>
         <div class="
+        section2
         dark:bg-neutral-900
         flex
         flex-col
@@ -314,6 +319,10 @@
         p-4
         py-12
         gap-6
+        opacity-0
+        translate-x-10
+        transition-all
+        duration-500
         ">
           <h2 class="
           text-neutral-700
@@ -347,6 +356,10 @@
             <!-- card 1 -->
             <div class="
             card card1
+            translate-x-6
+            opacity-0
+            duration-300
+            transition-all
             rounded-lg
             flex
             flex-1
@@ -375,6 +388,10 @@
             <!-- card 2 -->
             <div class="
             card card2
+            -translate-x-6
+            opacity-0
+            duration-300
+            transition-all
             rounded-lg
             flex
             flex-1
@@ -402,6 +419,10 @@
             <!-- card 3 -->
             <div class="
             card card3
+            translate-x-6
+            opacity-0
+            duration-300
+            transition-all
             rounded-lg
             flex
             flex-1
@@ -435,6 +456,7 @@
       <!-- * Section 3..About Us -->
       <section>
         <div class="
+        section3
         dark:bg-neutral-900
         flex
         flex-col
@@ -447,10 +469,10 @@
         py-6
         ">
 
-          <img class="w-72 rounded-xl lg:flex-1" src="./images/about us.jpg" alt="About Us">
+          <img class="translate-x-6 opacity-0 transition-all duration-300 w-72 rounded-xl lg:flex-1" src="./images/about us.jpg" alt="About Us">
   
           <div class="flex flex-col lg:flex-1 gap-6 items-center lg:items-start">
-            <h3 class="about text-5xl lg:text-8xl font-semibold inline-block relative">
+            <h3 class="translate-x-6 opacity-0 transition-all duration-300 about text-5xl lg:text-8xl font-semibold inline-block relative">
               <span class="magic-star">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M208 32c0-17.7 14.3-32 32-32h32c17.7 0 32 14.3 32 32V172.9l122-70.4c15.3-8.8 34.9-3.6 43.7 11.7l16 27.7c8.8 15.3 3.6 34.9-11.7 43.7L352 256l122 70.4c15.3 8.8 20.5 28.4 11.7 43.7l-16 27.7c-8.8 15.3-28.4 20.6-43.7 11.7L304 339.1V480c0 17.7-14.3 32-32 32H240c-17.7 0-32-14.3-32-32V339.1L86 409.6c-15.3 8.8-34.9 3.6-43.7-11.7l-16-27.7c-8.8-15.3-3.6-34.9 11.7-43.7L160 256 38 185.6c-15.3-8.8-20.5-28.4-11.7-43.7l16-27.7C51.1 98.8 70.7 93.6 86 102.4l122 70.4V32z"/></svg>
               </span>
@@ -464,6 +486,10 @@
             </h3>
     
             <p class="
+            translate-x-6 
+            opacity-0 
+            transition-all 
+            duration-300
             text-gray-400
             dark:text-white
             text-xl
@@ -472,6 +498,11 @@
             ">we are package delivery service company and have successfully delivered tens of thousands of packages from our customers successfully, we have delivered packages all over the world because we want everyone to get a feel of the best package delivery service</p>
     
             <button class="
+            btn
+            translate-x-6 
+            opacity-0 
+            transition-all 
+            duration-300
             bg-green-600
             text-white
             text-lg
@@ -494,6 +525,7 @@
       <!-- * Section 4..Routes -->
       <section>
         <div class="
+        section4
         dark:bg-neutral-900
         p-4
         py-24
@@ -502,6 +534,10 @@
         gap-6
         ">
           <h3 class="
+          opacity-0
+          translate-x-6
+          transition-all
+          duration-300
           text-3xl
           dark:text-white
           md:text-5xl
@@ -510,6 +546,10 @@
           ">Various kind of delivery that we have</h3>
   
           <p class="
+          opacity-0
+          translate-x-6
+          transition-all
+          duration-300
           flex 
           self-center 
           text-center 
@@ -535,6 +575,10 @@
             <!-- Road Route -->
             <div class="
             card road
+            opacity-0
+            translate-x-6
+            transition-all
+            duration-300
             text-white
             flex 
             lg:flex-1
@@ -554,6 +598,10 @@
             <!-- Sea Route -->
             <div class="
             card sea
+            opacity-0
+            -translate-x-6
+            transition-all
+            duration-300
             bg-white
             text-white
             flex 
@@ -573,6 +621,10 @@
             <!-- Sky Route -->
             <div class="
             card sky
+            opacity-0
+            translate-x-6
+            transition-all
+            duration-300
             bg-white
             text-white
             flex 
@@ -600,10 +652,17 @@
         <!-- Slider main container -->
         <div class="
         dark:bg-neutral-900 
+          section5
+          opacity-0
+          -translate-x-6
+          transition-all
+          duration-300
           swiper
         ">
           <!-- Additional required wrapper -->
-          <div class="swiper-wrapper">
+          <div class="
+          swiper-wrapper
+          ">
 
             <!-- Slides -->
 
@@ -1355,6 +1414,7 @@
       <!-- * section 6..Companies -->
       <section>
         <div class="
+        section6
         dark:bg-neutral-900
         flex
         flex-col
@@ -1365,6 +1425,10 @@
         ">
 
           <h3 class="
+          opacity-0
+          transition-all
+          duration-300
+          translate-x-6
           text-2xl
           dark:text-white
           font-semibold
@@ -1382,14 +1446,14 @@
           md:grid-rows-2
           ">
             <!-- The class companies is done using @apply in tailwind as all the classes were repeated for every icon -->
-            <img class="companies" src="./images/amazon.svg" alt="Amazon">
-            <img class="companies" src="./images/flipkart.svg" alt="Flipkart">
-            <img class="companies" src="./images/hp.svg " alt="Hp">
-            <img class="companies" src="./images/myntra.svg " alt="Myntra">
-            <img class="companies" src="./images/nykaa.svg " alt="Nykaa">
-            <img class="companies" src="./images/snapdeal.svg " alt="Snapdeal">
-            <img class="companies" src="./images/puma.svg " alt="Windows">
-            <img class="companies" src="./images/nike.svg " alt="Windows">
+            <img class="opacity-0 -translate-x-6 duration-200 transition-all companies" src="./images/amazon.svg" alt="Amazon">
+            <img class="opacity-0 translate-x-6 duration-200 transition-all delay-75  companies" src="./images/flipkart.svg" alt="Flipkart">
+            <img class="opacity-0 -translate-x-6 duration-200 transition-all delay-100 companies" src="./images/hp.svg " alt="Hp">
+            <img class="opacity-0 translate-x-6 duration-200 transition-all delay-100 companies" src="./images/myntra.svg " alt="Myntra">
+            <img class="opacity-0 -translate-x-6 duration-200 transition-all delay-150 companies" src="./images/nykaa.svg " alt="Nykaa">
+            <img class="opacity-0 translate-x-6 duration-200 transition-all delay-200 companies" src="./images/snapdeal.svg " alt="Snapdeal">
+            <img class="opacity-0 -translate-x-6 duration-200 transition-all delay-300 companies" src="./images/puma.svg " alt="Windows">
+            <img class="opacity-0 translate-x-6 duration-200 transition-all delay-500 companies" src="./images/nike.svg " alt="Windows">
           </div>
         </div>
       </section>
@@ -1398,16 +1462,21 @@
       <!-- * section 7..FAQ -->
       <section>
         <div class="
+        section7
         dark:bg-neutral-900
         flex
         flex-col
         items-center
         px-4
         py-6
-        gap-8
+        gap-6
         ">
         <div class="flex flex-col items-center gap-4">
           <h3 class="
+          opacity-0
+          transition-all
+          duration-300
+          translate-x-6
           text-5xl
           md:text-7xl
           dark:text-white
@@ -1415,7 +1484,11 @@
           ">FAQs</h3>
   
           <p class="
-          text-xl
+          opacity-0
+          transition-all
+          duration-300
+          -translate-x-6
+          text-md
           max-w-[50ch]
           md:text-3xl
           text-center
@@ -1428,8 +1501,13 @@
   
           <!-- * accordian 1 -->
           <div class="
+          accordian
           relative
           overflow-hidden
+          opacity-0
+          transition-all
+          duration-300
+          -translate-x-6
           ">
             <input class="
             peer
@@ -1450,13 +1528,13 @@
             w-full
             bg-gray-50
             dark:bg-neutral-700
-            text-gray-50
+            dark:text-gray-50
             rounded-t
             pl-5
             flex
             items-center
             ">
-              <h2 class="flex flex-wrap text-xl md:text-3xl font-semibold">What is Trackage?</h2>
+              <h2 class="flex flex-wrap text-xl md:text-3xl">What is Trackage?</h2>
             </div>
             
             <!-- * arrow -->
@@ -1495,8 +1573,14 @@
   
           <!-- * accordian 2 -->
           <div class="
+          accordian
           relative
           overflow-hidden
+          opacity-0
+          transition-all
+          duration-300
+          translate-x-6
+          delay-150
           ">
             <input class="
             peer
@@ -1517,13 +1601,13 @@
             w-full
             bg-gray-50
             dark:bg-neutral-700
-            text-gray-50
+            dark:text-gray-50
             rounded-t
             pl-5
             flex
             items-center
             ">
-              <h2 class="flex flex-wrap text-xl md:text-3xl font-semibold">Why should I use trackage?</h2>
+              <h2 class="flex flex-wrap text-xl md:text-3xl">Why should I use trackage?</h2>
             </div>
             
             <!-- * arrow -->
@@ -1562,8 +1646,14 @@
   
           <!-- * accordian 3 -->
           <div class="
+          accordian
           relative
           overflow-hidden
+          opacity-0
+          transition-all
+          duration-300
+          -translate-x-6
+          delay-300
           ">
             <input class="
             peer
@@ -1584,13 +1674,13 @@
             w-full
             bg-gray-50
             dark:bg-neutral-700
-            text-gray-50
+            dark:text-gray-50
             rounded-t
             pl-5
             flex
             items-center
             ">
-              <h2 class="flex flex-wrap text-xl md:text-3xl font-semibold">Can send package anywhere?</h2>
+              <h2 class="flex flex-wrap text-xl md:text-3xl">Can send package anywhere?</h2>
             </div>
             
             <!-- * arrow -->
@@ -1629,8 +1719,14 @@
   
           <!-- * accordian 4 -->
           <div class="
+          accordian
           relative
           overflow-hidden
+          opacity-0
+          transition-all
+          duration-300
+          translate-x-6
+          delay-500
           ">
             <input class="
             peer
@@ -1651,13 +1747,13 @@
             w-full
             bg-gray-50
             dark:bg-neutral-700
-            text-gray-50
+            dark:text-gray-50
             rounded-t
             pl-5
             flex
             items-center
             ">
-              <h2 class="flex flex-wrap text-xl md:text-3xl font-semibold">Track shipped items?</h2>
+              <h2 class="flex flex-wrap text-xl md:text-3xl">Track shipped items?</h2>
             </div>
             
             <!-- * arrow -->
@@ -1696,8 +1792,14 @@
   
           <!-- * accordian 5 -->
           <div class="
+          accordian
           relative
           overflow-hidden
+          opacity-0
+          transition-all
+          duration-300
+          -translate-x-6
+          delay-700
           ">
             <input class="
             peer
@@ -1718,13 +1820,13 @@
             w-full
             bg-gray-50
             dark:bg-neutral-700
-            text-gray-50
+            dark:text-gray-50
             rounded-t
             pl-5
             flex
             items-center
             ">
-              <h2 class="flex flex-wrap tracking-wide text-xl md:text-3xl font-semibold">Routes of Trackage?</h2>
+              <h2 class="flex flex-wrap tracking-wide text-xl md:text-3xl">Routes of Trackage?</h2>
             </div>
             
             <!-- * arrow -->
@@ -1781,18 +1883,31 @@
         ">
           
           <h3 class="
+          opacity-0
+          transition-all
+          duration-300
+          translate-x-6
           text-4xl
           md:text-6xl
           font-semibold
           ">Grow your business with us</h3>
   
           <p class="
+          opacity-0
+          transition-all
+          duration-300
+          -translate-x-6
           text-xl
           md:text-3xl
           max-w-[40ch]
           ">With us, let's grow your business so that more people can be reached, more practical your delivery</p>
   
           <button class="
+          btn
+          opacity-0
+          transition-all
+          duration-300
+          translate-x-6
           bg-green-400
           rounded-md
           py-2
@@ -1809,6 +1924,7 @@
       <!-- * section 9...Need help?  -->
       <section>
         <div class="
+        section9
         dark:bg-neutral-900
         flex
         flex-col
@@ -1819,6 +1935,10 @@
         px-4
         ">
           <h4 class="
+          opacity-0
+          transition-all
+          duration-300
+          translate-x-6
           text-green-400 
           dark:text-green-300
           font-semibold 
@@ -1827,6 +1947,11 @@
           ">Support</h4>
 
           <h2 class="
+          opacity-0
+          transition-all
+          duration-300
+          -translate-x-6
+          delay-150
           text-3xl 
           dark:text-white
           md:text-5xl
@@ -1834,14 +1959,25 @@
           ">Have questions that need answers?</h2>
 
           <p class="
+          opacity-0
+          transition-all
+          duration-300
+          translate-x-6
+          delay-300
           dark:text-gray-50
           md:text-xl
           md:max-w-[60ch]
           ">
-            Trackage support team is there to help you out with anything that's troubling you. Feel free to email us and include as much information as you can! and your problem will be solved <abbr class="cursor-pointer text-green-400 text-xl font-bold" title="as soon as possible">asap</abbr>  
+            Trackage support team is there to help you out with anything that's troubling you. Feel free to email us and include as much information as you can! and your problem will be solved 
+            <abbr class="cursor-pointer text-green-400 text-xl font-bold" title="as soon as possible">asap</abbr>  
           </p>
 
           <p class="
+          opacity-0
+          transition-all
+          duration-300
+          -translate-x-6
+          delay-500
           font-semibold 
           text-lg
           dark:text-gray-50
@@ -1849,6 +1985,11 @@
           ">For any enquiries you can email us at</p>
 
           <p class="
+          opacity-0
+          transition-all
+          duration-300
+          -translate-x-6
+          delay-700
           text-green-500
           dark:text-green-300
           text-lg
