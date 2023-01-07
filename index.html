@@ -5,7 +5,6 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./images/login.html">
     <title>Package Tracking | Hackathon</title>
   </head>
   <body class="
@@ -28,7 +27,7 @@
       w-full
       z-50
       ">
-        <a href="#">
+        <a href="./index.html">
           <img class="
           w-44
           lg:w-60
@@ -76,7 +75,7 @@
         right-0
         left-0
         top-16
-        p-4
+        p-6
         items-center
         text-center
         shadow-xl
@@ -165,7 +164,7 @@
           rounded-md
           px-8
           py-2
-          " href="./images/login.html">Login</a>
+          " href="./login.html">Login</a>
 
          <!-- sun -->
          <svg class="dark:text-white sun w-8 h-8 cursor-pointer" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -197,7 +196,7 @@
         justify-center
         ">
           <h1 class="
-          text-2xl
+          text-4xl
           md:text-7xl
           font-semibold
           w-[15ch]
@@ -216,7 +215,7 @@
           </p>
   
           <!-- tracking div -->
-          <form action="">
+          <form method="POST" action="tracking.html">
             <div class="
             w-fit
             md:w-[70ch]
@@ -250,7 +249,7 @@
               lg:placeholder:text-2xl
               text-md
               lg:text-2xl
-              " placeholder="Track your order now!" type="text">
+              " placeholder="Track your order now!" id="trackNum" type="text">
     
               <button class="
               bg-green-600
@@ -263,8 +262,7 @@
               px-3
               py-2
               lg:px-4
-              " type="submit">Track Now</button>
-              
+              " type="submit" id="trackBtn" onclick="passValue()">Track Now</button>
             </div>
           </form>
   
@@ -2141,5 +2139,15 @@
 
     <!-- gsap cdn -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" integrity="sha512-f8mwTB+Bs8a5c46DEm7HQLcJuHMBaH/UFlcgyetMqqkvTcYg4g5VXsYR71b3qC82lZytjNYvBj2pf0VekA9/FQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- js section to store the trackingNum in localStorage and pass that value to the Tracking HTML -->
+    <script>
+      function passValue(){
+          var trackingNum = document.getElementById("trackNum").value
+          localStorage.setItem("trackingNum",trackingNum)
+          return false
+        }
+    </script>
+
   </body>
 </html>

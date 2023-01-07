@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+
 @tailwind base;
 @tailwind components;
 
@@ -134,6 +137,10 @@ select {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)) ,  url(./images/live.jpg);
 }
 
+.adBox{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.5)) ,  url(./images/ad.jpg);
+}
+
 /* ! Animation not working..Do check this  */
 
 .about{
@@ -234,3 +241,8 @@ select {
   opacity: 1;
   transform: translateX(0);
 }
+/* 
+#map{
+  width: 100vw;
+  height: 100vh;
+} */
