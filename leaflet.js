@@ -112,9 +112,7 @@ if(orderoid[i].oid == track)
     if(!navigator.geolocation){
         alert("Your system doesnt support geolocation")
     }else{
-        setInterval(() => {
-            navigator.geolocation.watchPosition(showLocation)
-        }, 5000);
+        navigator.geolocation.watchPosition(showLocation)
     }
 
     document.getElementById("trackId").value = `${localStorage.getItem("trackingNum")}`

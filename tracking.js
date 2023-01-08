@@ -42,7 +42,7 @@ Box1.innerHTML = `
     gap-2
     bg-gradient-to-b from-gray-100 to-white
     px-4
-    py-2
+    py-2    
     rounded-lg
     ">
     <div class="flex text-gray-700 font-light justify-between">
@@ -51,7 +51,7 @@ Box1.innerHTML = `
     </div>
 
     <div class="flex justify-between">
-        <span class="text-2xl" id="result">${orders[0].oid}</span>
+        <span class="text-2xl " id="result">${orders[0].oid}</span>
         <button class="px-2 py-1 bg-orange-500 text-white">${orders[0].status}</button>
     </div>
 

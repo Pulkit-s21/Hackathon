@@ -143,7 +143,7 @@ select {
 
 .illus{
   background-size: contain;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.45),rgba(0, 0, 0, 0.5)) ,  url(./images/illustration.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.4)) ,  url(./images/illustration.jpg);
 }
 
 /* ! Animation not working..Do check this  */
