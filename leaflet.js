@@ -22,8 +22,8 @@ const orderoid = [
     },
     { 
         oid: '#TR15qy12',
-        lat: 30.733315,
-        long: 76.779419,
+        lat: localStorage.getItem("liveLat"),
+        long: localStorage.getItem("liveLng"),
         deliverLat: 30.7993,
         deliverLong: 76.9149,
         accuracy: 50,
@@ -53,9 +53,9 @@ const orderoid = [
         deliverTime: '09:00 PM',
     },
     { 
-        oid: '#TR83gh00',
-        lat: 13.082680,
-        long: 80.270721,
+        oid: '#TR83gh67',
+        lat: localStorage.getItem("liveLat"),
+        long: localStorage.getItem("liveLng"),
         deliverLat: 10.1632,
         deliverLong: 76.6413,
         accuracy: 50,
@@ -70,8 +70,8 @@ const orderoid = [
     },
     { 
         oid: '#TR51ff79',
-        lat: 22.572645,
-        long: 88.363892,
+        lat: localStorage.getItem("lat"),
+        long: localStorage.getItem("lng"),
         deliverLat: 28.7041,
         deliverLong: 77.1025,
         accuracy: 50,
@@ -109,13 +109,13 @@ if(orderoid[i].oid == track)
 {
 
     // * getting the geoLocation of the user(Ours rn)
-    // if(!navigator.geolocation){
-    //     alert("Your system doesnt support geolocation")
-    // }else{
-    //     setInterval(() => {
-    //         navigator.geolocation.getCurrentPosition(getPosition)
-    //     }, 5000);
-    // }
+    if(!navigator.geolocation){
+        alert("Your system doesnt support geolocation")
+    }else{
+        setInterval(() => {
+            navigator.geolocation.watchPosition(showLocation)
+        }, 5000);
+    }
 
     document.getElementById("trackId").value = `${localStorage.getItem("trackingNum")}`
 
@@ -130,6 +130,11 @@ if(orderoid[i].oid == track)
     var gps = L.control.locate()
 
     gps.addTo(map)
+
+    function showLocation(position) {
+        localStorage.setItem("liveLat",position.coords.latitude)
+        localStorage.setItem("liveLng",position.coords.longitude)
+     }
 
     // * Function to add marker and circle to the map
     var marker,circle;

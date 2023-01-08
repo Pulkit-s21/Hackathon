@@ -215,7 +215,7 @@
           </p>
   
           <!-- tracking div -->
-          <form action="./page2/tracking.html">
+          <form method="POST" action="tracking.html">
             <div class="
             w-fit
             md:w-[70ch]
@@ -2143,12 +2143,9 @@
 
     <script src="./declare.js"></script>
 
-    <!-- js section to store the trackingNum in localStorage and pass that value to the Tracking HTML -->
+    <!-- js section to store the trackingNum and lat.lng in localStorage and pass that value to the tracking HTML -->
     <script>
       function passValue(){
-        debugger;
-        var jsonlat = '40.7127281'
-        var jsonlng = '-74.0060152'
           var trackingNum = document.getElementById("trackNum").value
           var json4lat = JSON.parse(jsonlat)
           var json4lng = JSON.parse(jsonlng)
