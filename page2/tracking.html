@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+
+    <!-- leaflet css -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.79.0/dist/L.Control.Locate.min.css" />
+
+    <!-- leaflet routing machine css -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
+
+    <link rel="stylesheet" href="./style.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Package Tracking | Hackathon</title>
+  </head>
+
+    <body class="
+    min-h-screen
+    bg-gray-100
+    dark:bg-neutral-900
+    overflow-x-hidden
+    " onload="getting()">
+  
+      <!-- * NavBar -->
+      <nav class="
+      mx-auto
+      p-4
+      dark:bg-neutral-900
+      ">
+        <div class="
+        container
+        flex
+        justify-between
+        items-center
+        mx-auto
+        w-full
+        z-50
+        ">
+          <a href="./index.html">
+            <img class="
+            w-44
+            lg:w-60
+            lg:absolute
+            lg:left-1/2
+            lg:-translate-x-1/2
+            lg:top-8
+            z-50
+            hover:opacity-75
+            transition-opacity
+            " src="/images/Logo.png" alt="Trackage">
+          </a>
+  
+          <!-- hamburger  -->
+          <button class="
+          dark:text-white
+          lg:hidden
+          hover:opacity-50
+          " id="openMenu">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12H12m-8.25 5.25h16.5" />
+            </svg>
+          </button>
+  
+          <!-- close btn -->
+          <button class="
+          dark:text-white
+          hidden
+          lg:hidden
+          hover:opacity-50
+          " id="closeMenu">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+  
+          <div class="
+          bg-gray-100
+          dark:bg-neutral-900
+          hidden
+          flex-col
+          gap-6
+          lg:gap-16
+          absolute
+          right-0
+          left-0
+          top-16
+          p-6
+          items-center
+          text-center
+          shadow-xl
+          lg:shadow-none
+          lg:flex
+          lg:flex-row
+          lg:static
+          lg:justify-between
+          lg:w-full
+          " role="menuBar">
+            <a class="
+            text-lg
+            dark:text-white
+            lg:text-xl
+            border-b-2
+            border-white
+            hover:border-neutral-700
+            dark:border-neutral-800
+            dark:hover:border-white
+            transition-all 
+            duration-300
+            " href="#">Home</a>
+  
+            <a class="
+            text-lg
+            dark:text-white
+            lg:text-xl
+            border-b-2
+            border-white
+            hover:border-neutral-700
+            dark:border-neutral-800
+            dark:hover:border-white
+            transition-all 
+            duration-300
+            " href="#">Service</a>
+  
+            <a class="
+            text-lg
+            dark:text-white
+            border-b-2
+            lg:text-xl
+            lg:mr-auto
+            border-white
+            hover:border-neutral-700
+            dark:border-neutral-800
+            dark:hover:border-white
+            transition-all 
+            duration-300
+            " href="#">FAQ</a>
+  
+            <a class="
+            text-lg
+            dark:text-white
+            lg:text-xl
+            border-b-2
+            border-white
+            hover:border-neutral-700
+            dark:border-neutral-800
+            dark:hover:border-white
+            transition-all 
+            duration-300
+            " href="#">About Us</a>
+  
+            <a class="
+            text-lg
+            dark:text-white
+            lg:text-xl
+            border-b-2
+            border-white
+            hover:border-neutral-700
+            dark:border-neutral-800
+            dark:hover:border-white
+            transition-all 
+            duration-300
+            " href="#">Help</a>
+  
+            <a class="
+            text-lg
+            lg:text-xl
+            text-white
+            bg-green-400
+            hover:bg-white
+            hover:text-green-400
+            hover:transition
+            shadow-xl
+            rounded-md
+            px-8
+            py-2
+            " href="./login.html">Login</a>
+  
+           <!-- sun -->
+           <svg class="dark:text-white sun w-8 h-8 cursor-pointer" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+          </svg>
+  
+          <!-- moon -->
+            <svg class="dark:text-white moon w-8 h-8 cursor-pointer" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+          </svg>
+          
+          </div>
+  
+        </div>
+      </nav>
+  
+      <main>
+          <section class="
+          flex
+          flex-col
+          lg:flex-row
+          gap-12
+          px-4
+          py-6
+          mx-auto
+          ">
+          
+          <!-- Left side in Desktop View -->
+          <div class="
+          flex
+          flex-col
+          gap-4
+          ">
+            <!-- ad box -->
+            <div class="
+              card adBox
+              text-white
+              flex 
+              flex-col 
+              gap-2
+              items-start
+              shadow-xl
+              p-4
+              h-48
+              md:h-72
+              rounded
+              justify-evenly
+              ">
+                <h2 class="
+                font-semibold
+                text-4xl
+                ">
+                Save up to 
+                <span class="text-red-500 text-5xl">45%</span>
+              </h2>
+  
+              <p class="w-[25ch]">Use code <b class="text-lg">TRSAPCE</b> and save up-to <i class="text-xl"><b>45</b>%</i></p>
+  
+              <button class="
+              bg-red-400
+              px-4
+              py-2
+              font-light
+              hover:bg-red-500
+              transition-all
+              duration-150
+              ">Send Now</button>
+            </div>
+  
+            <!-- shipment history -->
+            <div class="
+            flex
+            flex-col
+            gap-4
+            ">
+              <div class="flex justify-between text-black dark:text-white">
+                <p class="text-xl font-Josefin"><b>Shipment History</b></p>
+                <button class="font-light text-lg">View All</button>
+              </div>
+  
+              <div class="flex justify-evenly py-2 gap-4 text-black dark:text-white">
+                <div class="flex flex-1 justify-center border-b-2 border-b-red-400" id="all">
+                  <button class="text-xl hover:text-gray-600 dark:hover:text-gray-300">All</button>
+                </div>
+                <div class="border-b-2 dark:border-b-gray-600 flex flex-1 justify-center" id="deliver">
+                  <button class="text-xl hover:text-gray-600 dark:hover:text-gray-300">Delivered</button>
+                </div>
+                <div class="border-b-2 dark:border-b-gray-600 flex flex-1 justify-center" id="progress">
+                  <button class="text-xl hover:text-gray-600 dark:hover:text-gray-300">In Progress</button>
+                </div>
+              </div>
+  
+              <div class="
+              orders
+              flex
+              flex-col
+              gap-4
+              ">
+              </div>
+            </div>
+  
+            <!-- Alert -->
+            <div class="flex flex-col gap-4 my-4">
+              <div class="flex justify-between text-black dark:text-white">
+                <p class="text-xl font-Josefin"><b>Alert</b></p>
+                <button class="font-light text-lg">View All</button>
+              </div>
+              
+              <div class="
+              alerts
+              flex
+              flex-col
+              gap-4
+              ">
+              </div>
+            </div>
+  
+          </div>
+  
+  
+          <!-- Right Side/Map side in Desktop View -->
+          <div class="
+          flex
+          flex-col
+          gap-4
+          md:flex-1
+          ">
+  
+            <!-- tracking num div -->
+            <div class="
+            flex
+            flex-col
+            gap-2
+            ">
+              <p class="font-Josefin text-xl lg:text-3xl">Tracking Number</p>
+  
+              <div class="
+              flex
+              gap-1
+              items-center
+              p-2
+              space-x-0.5
+              bg-gray-200
+              ">
+                <i class="
+                fa-sharp fa-solid fa-box
+                text-gray-400
+                text-2xl
+                "></i>
+      
+                <input class="
+                uppercase
+                py-1
+                px-2
+                lg:px-4
+                flex
+                flex-1
+                items-center
+                bg-transparent
+                outline-none
+                font-light
+                text-gray-600
+                placeholder:text-neutral-500
+                placeholder:text-md
+                lg:placeholder:text-2xl
+                text-xl
+                lg:text-2xl
+                " id="trackId" placeholder="Order ID!" type="text" readonly>
+              </div>
+            </div>
+  
+            <!-- map div -->
+            <div class="w-full h-[50vh]">
+              <div class="px-2 w-full h-full rounded-xl" id="map"></div>
+            </div>
+  
+            <!-- package status -->
+            <div class="flex flex-col gap-4 px-2 my-4" id="packageStatus">
+              <h3 class="font-Josefin text-xl lg:text-3xl">Package Status</h3>
+  
+              <!-- date time div -->
+              <div class="card illus flex flex-col lg:flex-row bg-white text-white rounded-xl">
+                <div class="flex flex-col lg:flex-1 px-2">
+                  <!-- req div -->
+                  <div class="flex flex-col py-4">
+                    <div class="flex items-center gap-2">
+                      <i class="fa-sharp fa-solid fa-location-dot text-lg lg:text-2xl text-yellow-400"></i>
+                      <p class="text-lg lg:text-3xl">Requested</p>
+                    </div>
+                    
+                    <!-- time div -->
+                    <div class="font-Poiret text-xl lg:text-2xl flex gap-2 px-6">
+                      <p id="reqDate"></p>
+                      <p id="reqTime"></p>
+                    </div>
+                  </div>
+  
+                  <!-- pickUp div -->
+                  <div class="flex flex-col py-4">
+                    <div class="flex items-center gap-2">
+                      <i class="fa-sharp fa-solid fa-location-dot text-lg lg:text-2xl text-green-400"></i>
+                      <p class="text-lg lg:text-3xl">Picked Up</p>
+                    </div>
+                    
+                    <!-- time div -->
+                    <div class="font-Poiret text-xl lg:text-2xl flex gap-2 px-6">
+                      <p id="pickDate"></p>
+                      <p id="pickTime"></p>
+                    </div>
+                  </div>
+  
+                  <!-- In-transit div -->
+                  <div class="flex flex-col py-4">
+                    <div class="flex items-center gap-2">
+                      <i class="fa-regular fa-circle-dot text-lg lg:text-2xl text-red-400"></i>
+                      <p class="text-lg lg:text-3xl">In-Transit</p>
+                    </div>
+                    
+                    <!-- time div -->
+                    <div class="font-Poiret text-xl lg:text-2xl flex gap-2 px-6">
+                      <p id="transitDate"></p>
+                      <p id="transitTime"></p>
+                    </div>
+                  </div>
+  
+                  <!-- Delivered div -->
+                  <div class="flex flex-col py-4">
+                    <div class="flex items-center gap-2">
+                      <i class="fa-sharp fa-solid fa-location-dot text-lg lg:text-2xl text-gray-400"></i>
+                      <p class="text-lg lg:text-3xl">Package delivery</p>
+                    </div>
+                    
+                    <!-- time div -->
+                    <div class="font-Poiret text-xl lg:text-2xl flex gap-2 px-6">
+                      <p class="" id="deliverDate"></p>
+                      <p class="" id="deliverTime"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+            </div>
+          </div>
+  
+          </section>
+      </main>
+  
+      <script type="module" src="/main.js"></script>
+      <script src="https://kit.fontawesome.com/4eaa959a81.js" crossorigin="anonymous"></script>
+  
+      <!-- swiperjs -->
+      <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  
+      <!-- jquery for swiper -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  
+      <!-- scrollMagicjs -->
+      <script src="./scrollMagic.js"></script>
+  
+      <!-- scrollMagic cdn -->
+      <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+  
+      <!-- trackingjs -->
+      <script src="./tracking.js"></script>
+  
+      <!-- leaflet js -->
+      <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.79.0/dist/L.Control.Locate.min.js" charset="utf-8"></script>
+  
+      <!-- leaflet routing machine js -->
+      <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
+  
+      <script src="./leaflet.js"></script>
+
+      <script src="./declare.js"></script>
+
+      <script>
+        function getting(){
+          var json4lat = JSON.parse(jsonlat)
+          var json4lng = JSON.parse(jsonlng)
+      
+          localStorage.setItem("lat",json4lat)
+          localStorage.setItem("lng",json4lng)
+        }
+      </script>
+  
+    </body>
+
+</html>
