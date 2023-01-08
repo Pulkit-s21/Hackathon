@@ -3,7 +3,8 @@ module.exports = {
   content: [
     "**/*.html",
     "./src/**/*.{js,ts,jsx,tsx}",
-    "./tracking.js"
+    "./tracking.js",
+    "./carousel.js",
   ],
   darkMode: 'class',
   theme: {

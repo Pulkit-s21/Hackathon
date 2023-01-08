@@ -17,7 +17,7 @@ const orders = [
         status: 'Pending'
     },
     {
-        oid: '#TR97te08',
+        oid: '#TR83gh00',
         status: 'Delivered'
     },
     {
@@ -43,6 +43,7 @@ Box1.innerHTML = `
     bg-gradient-to-b from-gray-100 to-white
     px-4
     py-2
+    rounded-lg
     ">
     <div class="flex text-gray-700 font-light justify-between">
         <p>Tracking number</p>
@@ -81,6 +82,7 @@ Box2.innerHTML = `
     bg-gradient-to-b from-gray-100 to-white
     px-4
     py-2
+    rounded-lg
     ">
     <div class="flex text-gray-700 font-light justify-between">
         <p>Tracking number</p>
@@ -160,25 +162,37 @@ orderBox.append(Box2)
 alertBox.append(Box3)
 alertBox.append(Box4)
 
+// * Making the order status btns work
+const all = document.getElementById("all")
+const delivered = document.getElementById("deliver")
+const inProgress = document.getElementById("progress")
 
-//TODO: Make this work
-// const all = document.getElementById("all")
-// const delivered = document.getElementById("deliver")
-// const inProgress = document.getElementById("progress")
+all.addEventListener("click",()=>{
+    Box1.classList.remove("hidden")
+    Box2.classList.remove("hidden")
+    Box3.classList.remove("hidden")
+    Box4.classList.remove("hidden")
+    all.classList.add("border-b-red-400")
+    inProgress.classList.remove("border-b-red-400")
+    delivered.classList.remove("border-b-red-400")
+})
 
-// delivered.addEventListener("click",()=>{
-//     Box1.classList.add("hidden")
-//     Box2.classList.add("hidden")
-//     all.classList.remove("border-b-red-400")
-//     inProgress.classList.remove("border-b-red-400")
-//     delivered.classList.add("border-b-red-400")
-// })
+delivered.addEventListener("click",()=>{
+    Box1.classList.add("hidden")
+    Box2.classList.add("hidden")
+    Box3.classList.remove("hidden")
+    Box4.classList.remove("hidden")
+    all.classList.remove("border-b-red-400")
+    inProgress.classList.remove("border-b-red-400")
+    delivered.classList.add("border-b-red-400")
+})
 
-// inProgress.addEventListener("click",()=>{
-//     Box3.classList.add("hidden")
-//     Box4.classList.add("hidden")
-//     all.classList.remove("border-b-red-400")
-//     delivered.classList.remove("border-b-red-400")
-//     inProgress.classList.add("border-b-red-400")
-// })
-
+inProgress.addEventListener("click",()=>{
+    Box3.classList.add("hidden")
+    Box4.classList.add("hidden")
+    Box1.classList.remove("hidden")
+    Box2.classList.remove("hidden")
+    all.classList.remove("border-b-red-400")
+    delivered.classList.remove("border-b-red-400")
+    inProgress.classList.add("border-b-red-400")
+})

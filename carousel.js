@@ -22,3 +22,7 @@
         el: '.swiper-scrollbar',
       },
     });
+
+    const slider = document.getElementById("slider")
+
+    console.log(slider)
