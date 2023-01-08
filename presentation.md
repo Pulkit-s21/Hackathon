@@ -10,12 +10,6 @@ class: invert
 
 # Courier tracking Website
 
-##### By: 
-+ Pulkit 
-+ Pranay 
-+ Tushar 
-+ Vikas
-
 ---
 
 # The Question

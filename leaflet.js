@@ -5,10 +5,10 @@ var track = localStorage.getItem("trackingNum")
 const orderoid = [
     { 
         oid: '#TR12sz11',
-        lat: 30.4766,
-        long: 76.5905,
-        deliverLat: 30.6942,
-        deliverLong: 76.8606,
+        lat: localStorage.getItem("lat"),
+        long: localStorage.getItem("lng"),
+        deliverLat: 23.2599,
+        deliverLong: 77.4126,
         accuracy: 50,
         reqDate: '10-1-2023',
         reqTime: '10:00 PM',
@@ -149,8 +149,11 @@ if(orderoid[i].oid == track)
 
         marker = L.marker([orderoid[i].lat,orderoid[i].long]).addTo(map).bindPopup('Your order is here.').openPopup();
         
-        console.log(orderoid[i].lat)
-        console.log(orderoid[i].long)
+        // console.log(orderoid[i].lat)
+        // console.log(orderoid[i].long)
+        // console.log(localStorage.getItem("lat"))
+        // console.log(localStorage.getItem("lng"))
+        
         marker.addTo(map)
         circle = L.circle([orderoid[i].lat,orderoid[i].long],{radius: orderoid[i].accuracy})
         circle.addTo(map)
@@ -206,15 +209,3 @@ function packageStatus(){
     document.getElementById("deliverDate").innerHTML = orderoid[i].deliverDate
     document.getElementById("deliverTime").innerHTML = orderoid[i].deliverTime
 }
-
-// const spawner = require('child_process').spawn
-
-// // string
-// const data_to_pass  = orderoid[i].phone
-// console.log('Done')
-
-// const python_process = spawner('python',['./track.py',data_to_pass])
-
-// python_process.stdout.on('data',(data)=>{
-//     console.log(data.toString())
-// })

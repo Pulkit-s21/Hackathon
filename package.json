@@ -16,6 +16,8 @@
   },
   "dependencies": {
     "gsap": "^3.11.4",
-    "leaflet": "^1.9.3"
+    "leaflet": "^1.9.3",
+    "requirejs": "^2.3.6",
+    "skulpt": "^1.2.0"
   }
 }
