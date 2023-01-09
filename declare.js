@@ -1,2 +1,2 @@
-var jsonlat = '40.7127281'
-var jsonlng = '-74.0060152'
+var jsonlat = '40.9699889'
+var jsonlng = '-77.7278831'

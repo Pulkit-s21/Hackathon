@@ -313,7 +313,7 @@
             flex-col
             gap-2
             ">
-              <p class="font-Josefin text-xl lg:text-3xl">Tracking Number</p>
+              <p class="font-Josefin text-xl lg:text-3xl dark:text-white">Tracking Number</p>
   
               <div class="
               flex
@@ -322,10 +322,13 @@
               p-2
               space-x-0.5
               bg-gray-200
+              dark:bg-neutral-600
+              rounded-xl
               ">
                 <i class="
                 fa-sharp fa-solid fa-box
                 text-gray-400
+                dark:text-white
                 text-2xl
                 "></i>
       
@@ -341,6 +344,7 @@
                 outline-none
                 font-light
                 text-gray-600
+                dark:text-white
                 placeholder:text-neutral-500
                 placeholder:text-md
                 lg:placeholder:text-2xl
@@ -412,9 +416,9 @@
                     </div>
                     
                     <!-- time div -->
-                    <div class="font-Poiret text-xl lg:text-2xl flex gap-2 px-6">
-                      <p class="" id="deliverDate"></p>
-                      <p class="" id="deliverTime"></p>
+                    <div class="font-Poiret flex gap-2 px-6">
+                      <p class="text-lg lg:text-2xl" id="deliverDate"></p>
+                      <p class="text-lg lg:text-xl" id="deliverTime"></p>
                     </div>
                   </div>
                 </div>
@@ -464,6 +468,8 @@
           localStorage.setItem("lat",json4lat)
           localStorage.setItem("lng",json4lng)
         }
+
+        
       </script>
   
     </body>

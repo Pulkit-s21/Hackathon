@@ -2143,18 +2143,18 @@
 
     <script src="./declare.js"></script>
 
-    <!-- js section to store the trackingNum in localStorage and pass that value to the Tracking HTML -->
+    <!-- js section to store the trackingNum and lat.lng in localStorage and pass that value to the tracking HTML -->
     <script>
       function passValue(){
           var trackingNum = document.getElementById("trackNum").value
-          var json4lat = JSON.parse(jsonlat)
-          var json4lng = JSON.parse(jsonlng)
-      
-          localStorage.setItem("lat",json4lat)
-          localStorage.setItem("lng",json4lng)
-          localStorage.setItem("trackingNum",trackingNum)
-          return false
-        }
+            var json4lat = JSON.parse(jsonlat)
+            var json4lng = JSON.parse(jsonlng)
+        
+            localStorage.setItem("lat",json4lat)
+            localStorage.setItem("lng",json4lng)
+            localStorage.setItem("trackingNum",trackingNum)
+            return false
+          }
     </script>
 
   </body>

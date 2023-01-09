@@ -3,6 +3,8 @@ var track = localStorage.getItem("trackingNum")
 
 // * details of all the in-progress orders
 const orderoid = [
+
+    // Phn num -> Bhopal
     { 
         oid: '#TR12sz11',
         lat: localStorage.getItem("lat"),
@@ -20,13 +22,15 @@ const orderoid = [
         deliverTime: '09:00 PM',
         phone: '+918558891061'
     },
+
+    // Laptop location -> Pinjore
     { 
         oid: '#TR15qy12',
-        lat: 30.733315,
-        long: 76.779419,
+        lat: localStorage.getItem("liveLat"),
+        long: localStorage.getItem("liveLng"),
         deliverLat: 30.7993,
         deliverLong: 76.9149,
-        accuracy: 50,
+        accuracy: localStorage.getItem("liveacc"),
         reqDate: '07-1-2023',
         reqTime: '08:00 AM',
         pickDate: '07-1-2023',
@@ -36,6 +40,8 @@ const orderoid = [
         deliverDate: '10-1-2023',
         deliverTime: '09:00 PM',
     },
+
+    // Kalka -> Ambala
     { 
         oid: '#TR77qe24',
         lat: 30.834999,
@@ -52,13 +58,15 @@ const orderoid = [
         deliverDate: '12-1-2023',
         deliverTime: '09:00 PM',
     },
+
+    // Laptop location -> Kochi
     { 
-        oid: '#TR83gh00',
-        lat: 13.082680,
-        long: 80.270721,
+        oid: '#TR83gh67',
+        lat: localStorage.getItem("liveLat"),
+        long: localStorage.getItem("liveLng"),
         deliverLat: 10.1632,
         deliverLong: 76.6413,
-        accuracy: 50,
+        accuracy: localStorage.getItem("liveacc"),
         reqDate: '22-12-2022',
         reqTime: '06:41 PM',
         pickDate: '22-12-2022',
@@ -68,10 +76,12 @@ const orderoid = [
         deliverDate: '27-12-2022',
         deliverTime: '09:00 PM',
     },
+    
+    // Phn num -> Delhi
     { 
         oid: '#TR51ff79',
-        lat: 22.572645,
-        long: 88.363892,
+        lat: localStorage.getItem("lat"),
+        long: localStorage.getItem("lng"),
         deliverLat: 28.7041,
         deliverLong: 77.1025,
         accuracy: 50,
@@ -84,6 +94,8 @@ const orderoid = [
         deliverDate: '14-1-2023',
         deliverTime: '09:00 PM',
     },
+
+    // NY -> Philli
     { 
         oid: '#TR41yt55',
         lat: 40.730610,
@@ -109,20 +121,27 @@ if(orderoid[i].oid == track)
 {
 
     // * getting the geoLocation of the user(Ours rn)
-    // if(!navigator.geolocation){
-    //     alert("Your system doesnt support geolocation")
-    // }else{
-    //     setInterval(() => {
-    //         navigator.geolocation.getCurrentPosition(getPosition)
-    //     }, 5000);
-    // }
+    if(!navigator.geolocation){
+        alert("Your system doesnt support geolocation")
+    }else{
+        navigator.geolocation.watchPosition(showLocation)
+    }
+
+    // function to get the coords of this system
+    function showLocation(position) {
+        localStorage.setItem("liveLat",position.coords.latitude)
+        localStorage.setItem("liveLng",position.coords.longitude)
+        localStorage.setItem("liveacc",position.coords.accuracy)
+     }
+
+    
 
     document.getElementById("trackId").value = `${localStorage.getItem("trackingNum")}`
 
     // * Map initial focus point
     var map = L.map('map').setView([30.6942, 76.8606], 6);
 
-    // * osm layer
+    // * osm layer...it provides the roads,buildings etc
     var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png')
 
     osm.addTo(map)
@@ -131,14 +150,10 @@ if(orderoid[i].oid == track)
 
     gps.addTo(map)
 
+
     // * Function to add marker and circle to the map
     var marker,circle;
     function getPosition(){
-
-        // console.log(position)
-        // var lat = position.coords.latitude
-        // var long = position.coords.longitude
-        // var accuracy = position.coords.accuracy
 
         if(marker){
             map.removeLayer(marker)
@@ -149,18 +164,14 @@ if(orderoid[i].oid == track)
 
         marker = L.marker([orderoid[i].lat,orderoid[i].long]).addTo(map).bindPopup('Your order is here.').openPopup();
         
-        // console.log(orderoid[i].lat)
-        // console.log(orderoid[i].long)
-        // console.log(localStorage.getItem("lat"))
-        // console.log(localStorage.getItem("lng"))
-        
         marker.addTo(map)
         circle = L.circle([orderoid[i].lat,orderoid[i].long],{radius: orderoid[i].accuracy})
         circle.addTo(map)
 
+
+
         // * Adding the routes from current location of courier to the delivery address
         L.Routing.control({
-            // show: false,
             draggableWaypoints: false,
             waypoints: [
               L.latLng(orderoid[i].lat, orderoid[i].long),
@@ -184,7 +195,7 @@ if(orderoid[i].oid == track)
     break;
 }
 
-    // *  Setting the tracking num input value as this
+    // *  Setting the tracking num input value as this IF the order isnt found in the list
     document.getElementById("trackId").value = "Order Not Found!"
     document.getElementById("trackId").style.color = 'red'
 
@@ -195,8 +206,7 @@ if(orderoid[i].oid == track)
 
 if(localStorage.getItem("trackingNum") == ''){
     alert("Please enter a tracking Number")
-    history.back() 
-    // This makes the browser go back to the previous page which is the index.html here.. We do this when clicks on the track now btn without entering the tracking num
+    history.back() // This makes the browser go back to the previous page which is the index.html here.. We do this when clicks on the track now btn without entering the tracking num
 }
 
 function packageStatus(){

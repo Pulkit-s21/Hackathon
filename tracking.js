@@ -42,19 +42,17 @@ Box1.innerHTML = `
     gap-2
     bg-gradient-to-b from-gray-100 to-white
     px-4
-    py-2
+    py-2    
     rounded-lg
     ">
     <div class="flex text-gray-700 font-light justify-between">
         <p>Tracking number</p>
         <p>Status</p>
     </div>
-
     <div class="flex justify-between">
-        <span class="text-2xl" id="result">${orders[0].oid}</span>
+        <span class="text-2xl " id="result">${orders[0].oid}</span>
         <button class="px-2 py-1 bg-orange-500 text-white">${orders[0].status}</button>
     </div>
-
     <div class="flex my-2 justify-between">
         <div class="flex items-center gap-2">
         <i class="fa-solid fa-location-dot text-red-500"></i>
@@ -62,7 +60,6 @@ Box1.innerHTML = `
         </div>
         <p class="text-lg font-Poiret">${orders[0].orderDate}</p>
     </div>
-
     <div class="flex justify-between">
         <div class="flex items-center gap-2">
         <i class="fa-solid fa-location-dot text-green-500"></i>
@@ -88,12 +85,10 @@ Box2.innerHTML = `
         <p>Tracking number</p>
         <p>Status</p>
     </div>
-
     <div class="flex justify-between">
         <span class="text-2xl" id="result">${orders[1].oid}</span>
         <button class="px-2 py-1 bg-orange-500 text-white">${orders[1].status}</button>
     </div>
-
     <div class="flex my-2 justify-between">
         <div class="flex items-center gap-2">
         <i class="fa-solid fa-location-dot text-red-500"></i>
@@ -101,7 +96,6 @@ Box2.innerHTML = `
         </div>
         <p class="text-lg font-Poiret">${orders[1].orderDate}</p>
     </div>
-
     <div class="flex justify-between">
         <div class="flex items-center gap-2">
         <i class="fa-solid fa-location-dot text-green-500"></i>
@@ -126,7 +120,6 @@ Box3.innerHTML = `
         <p>Tracking number</p>
         <p>Status</p>
     </div>
-
     <div class="flex justify-between">
         <span class="text-2xl" id="result">${orders[2].oid}</span>
         <button class="px-2 py-1 bg-green-500 text-white">${orders[2].status}</button>
@@ -148,7 +141,6 @@ Box4.innerHTML = `
         <p>Tracking number</p>
         <p>Status</p>
     </div>
-
     <div class="flex justify-between">
         <span class="text-2xl" id="result">${orders[3].oid}</span>
         <button class="px-2 py-1 bg-green-500 text-white">${orders[3].status}</button>
