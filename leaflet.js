@@ -26,7 +26,7 @@ const orderoid = [
         long: localStorage.getItem("liveLng"),
         deliverLat: 30.7993,
         deliverLong: 76.9149,
-        accuracy: 50,
+        accuracy: localStorage.getItem("liveacc"),
         reqDate: '07-1-2023',
         reqTime: '08:00 AM',
         pickDate: '07-1-2023',
@@ -58,7 +58,7 @@ const orderoid = [
         long: localStorage.getItem("liveLng"),
         deliverLat: 10.1632,
         deliverLong: 76.6413,
-        accuracy: 50,
+        accuracy: localStorage.getItem("liveacc"),
         reqDate: '22-12-2022',
         reqTime: '06:41 PM',
         pickDate: '22-12-2022',
@@ -115,12 +115,21 @@ if(orderoid[i].oid == track)
         navigator.geolocation.watchPosition(showLocation)
     }
 
+    // function to get the coords of this system
+    function showLocation(position) {
+        localStorage.setItem("liveLat",position.coords.latitude)
+        localStorage.setItem("liveLng",position.coords.longitude)
+        localStorage.setItem("liveacc",position.coords.accuracy)
+     }
+
+    
+
     document.getElementById("trackId").value = `${localStorage.getItem("trackingNum")}`
 
     // * Map initial focus point
     var map = L.map('map').setView([30.6942, 76.8606], 6);
 
-    // * osm layer
+    // * osm layer...it provides the roads,buildings etc
     var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png')
 
     osm.addTo(map)
@@ -129,19 +138,10 @@ if(orderoid[i].oid == track)
 
     gps.addTo(map)
 
-    function showLocation(position) {
-        localStorage.setItem("liveLat",position.coords.latitude)
-        localStorage.setItem("liveLng",position.coords.longitude)
-     }
 
     // * Function to add marker and circle to the map
     var marker,circle;
     function getPosition(){
-
-        // console.log(position)
-        // var lat = position.coords.latitude
-        // var long = position.coords.longitude
-        // var accuracy = position.coords.accuracy
 
         if(marker){
             map.removeLayer(marker)
@@ -152,18 +152,14 @@ if(orderoid[i].oid == track)
 
         marker = L.marker([orderoid[i].lat,orderoid[i].long]).addTo(map).bindPopup('Your order is here.').openPopup();
         
-        // console.log(orderoid[i].lat)
-        // console.log(orderoid[i].long)
-        // console.log(localStorage.getItem("lat"))
-        // console.log(localStorage.getItem("lng"))
-        
         marker.addTo(map)
         circle = L.circle([orderoid[i].lat,orderoid[i].long],{radius: orderoid[i].accuracy})
         circle.addTo(map)
 
+
+
         // * Adding the routes from current location of courier to the delivery address
         L.Routing.control({
-            // show: false,
             draggableWaypoints: false,
             waypoints: [
               L.latLng(orderoid[i].lat, orderoid[i].long),
@@ -187,7 +183,7 @@ if(orderoid[i].oid == track)
     break;
 }
 
-    // *  Setting the tracking num input value as this
+    // *  Setting the tracking num input value as this IF the order isnt found in the list
     document.getElementById("trackId").value = "Order Not Found!"
     document.getElementById("trackId").style.color = 'red'
 
@@ -198,8 +194,7 @@ if(orderoid[i].oid == track)
 
 if(localStorage.getItem("trackingNum") == ''){
     alert("Please enter a tracking Number")
-    history.back() 
-    // This makes the browser go back to the previous page which is the index.html here.. We do this when clicks on the track now btn without entering the tracking num
+    history.back() // This makes the browser go back to the previous page which is the index.html here.. We do this when clicks on the track now btn without entering the tracking num
 }
 
 function packageStatus(){

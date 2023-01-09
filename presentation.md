@@ -6,28 +6,32 @@ class: invert
 
 ---
 
-![width:500px](/images/Logo.png)
+# HyperText Assassins
+#
 
-# Courier tracking Website
+![width:800px](./marp_images/Logo.png)
+
+## Courier tracking Website
 
 ---
 
 # The Question
++ Low-cost high-level tracking system for packages
+# 
+
++ Nowadays is all about online shopping and people get really worried about the status of their package. So design a tracking system that provides real-time information about our package and possible time for delivery
 
 ---
 
 # Technologies
-+ For the Front-end we have used
++ We have used
     + HTML
     + Tailwind
     + JavaScript
     + ScrollMagic 
     + SwiperJS
-
-+ For the Back-end we have used
-    + Google geolocation API
-    + PhP
-    + Sql
+    + LeafletJS
+    + Python
 
 ---
 
@@ -45,15 +49,6 @@ class: invert
     localStorage.setItem("theme","dark")
     iconToggle()
 ```
-+ We used JS to let user switch between the modes
-
----
-
-# Tracking Section
-
-We have the first section where user can input their `tracking number` into the input field to check the status of their package
-
-![height:5in](./marp_images/marpSection1.png)
 
 ---
 
@@ -77,16 +72,6 @@ var scene5 = new ScrollMagic.Scene({
 
 Just an example of how we use `scrollMagic` to add animations
 
----
-
-# Provided services
-
-We added a section to let user know that the company delivers to distant places as well through various modes of transport and not just nearby places
-
-+ Seeing these kind of information is much easier and attractive when shown in card forms to seprate them and explain in less words
-
----
-
 # Testimonials
 
 New customer always look for reviews on the product they want to buy so `testimonials` go a long way in acquiring new customers
@@ -109,18 +94,76 @@ New customer always look for reviews on the product they want to buy so `testimo
 
 ---
 
-# FAQ
+# Python Part
 
-There are some common most asked questions on every site, we displayed that section in `accordian` form. This section is made completely using Tailwind.
++ It accepts a number and then uses `phonenumbers` module to convert the string passed into format and use `openCage api` to get the information like Country, lat, long, service provider of the number
 
-![](./marp_images/marpSection7.png)
++ We then used `json.dumps` to convert the lat & long to json and `sys module` to write that json into a file
+
 
 ---
 
-# Support
+# Tracking Page
 
-Many-a-times users have question that aren't displayed on site and they have no way of clearing them online. So a `support` section is good to have 
++ When user enters the `tracking num` it is stored in `localStorage` so that we can transfer that data to the next page
 
-+ Best way to answer those questions is through email
++ We check if the number entered is in the `orderList` or not
++ There can be three cases
+    + If number is not then the value of input field says `Order Not Found`, the map and the package status area doesn't show up
 
-+ We used `<a href="mailto:">` tag to let user just click on the link and this will direct them to email section and they can send their question easily
+    + If user doesn't enters any data then an alert pops up and sends user back to landing page to enter the data
+
+    + If the tracking num is correct then the whole page loads
+
+---
+
+# Leaflet JS
+
++ We added the map using this for the tracking
++ We used `routing machine` as well to get the route from A->B
++ Routing machine gives direction as well 
++ It takes coordinates to place the `marker` and `circle`
+
+---
+
++ So now `LeafletJs` needs coordinates to place the marker and circle which will be provided from the `ordreroid` array of objects
++ If the orderId matches from the list then those coordinates are put into the Leaflet Js 
+
+![](./marp_images/leaflet.png)
+
++ Now the coordinates will be fetched from either the python script or from the live coordinates of our system as for now 
+
++ The route will be from the coordinates of the courier to the delivery coordinates we have in the orderoid object 
+
+--- 
+
+# Package Status
+
+The package status area gets the information from that orderId object 
+
+We have area for other orders of that account which are divided into delivered or pending section
+
+The buttons in the shipment history area work and when clicked on they only show courier according the their text
+
+#
++ The coordinates of our system are fetched every few secs and updated in the localStorage
+
++ The coordinates of the number are fetched and updated in the file as well as the localStorage everytime the python program is run
+
+---
+
+# Future
+
++ Make the python script run from the webpage itself 
+
++ Send the number to python program from Javascript according to the orderId
+
++ Store the login/signup information on database and show data like previous order information after user logs into their account
+---
+
+# By
+## HyperText Assassins
++ Pulkit
++ Pranay
++ Tushar
++ Vikas
