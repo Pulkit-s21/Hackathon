@@ -249,7 +249,7 @@
                 py-2
                 rounded
                 ">
-                    <input class="dark:bg-transparent text-lg outline-none text-blue-500" type="email" id="email" placeholder="Email/Username" required autocomplete="off">
+                    <input class="dark:bg-transparent text-lg outline-none text-blue-500" type="email" id="email" placeholder="Email" required autocomplete="off">
                     <i class="fa-solid fa-envelope text-blue-600"></i>
                 </div>
 
@@ -290,7 +290,7 @@
                 py-2 
                 rounded-sm 
                 text-lg
-                " id="login">Login</button>
+                " id="login" onclick="entered()">Login</button>
 
                 <button class="
                 border
@@ -339,6 +339,13 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
 
     <script src="./carousel.js"></script>
+
+    <script>
+      function entered(){
+        console.log(document.getElementById("email").value)
+        console.log(document.getElementById("password").value)
+      }
+    </script>
 
   </body>
 </html>
