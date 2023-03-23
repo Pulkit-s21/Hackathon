@@ -97,7 +97,7 @@
           dark:hover:border-white
           transition-all 
           duration-300
-          " href="#">Home</a>
+          " href="#section1">Home</a>
 
           <a class="
           text-lg
@@ -110,7 +110,7 @@
           dark:hover:border-white
           transition-all 
           duration-300
-          " href="#">Service</a>
+          " href="#section4">Service</a>
 
           <a class="
           text-lg
@@ -124,7 +124,7 @@
           dark:hover:border-white
           transition-all 
           duration-300
-          " href="#">FAQ</a>
+          " href="#section7">FAQ</a>
 
           <a class="
           text-lg
@@ -137,7 +137,7 @@
           dark:hover:border-white
           transition-all 
           duration-300
-          " href="#">About Us</a>
+          " href="#section3">About Us</a>
 
           <a class="
           text-lg
@@ -150,7 +150,7 @@
           dark:hover:border-white
           transition-all 
           duration-300
-          " href="#">Help</a>
+          " href="#section9">Help</a>
 
           <a class="
           text-lg
@@ -183,7 +183,7 @@
 
     <main>
       <!-- * Section 1..Tracking -->
-      <section>
+      <section id="section1">
         <div class="
         card section1 
         min-h-screen
@@ -453,7 +453,7 @@
 
 
       <!-- * Section 3..About Us -->
-      <section>
+      <section id="section3">
         <div class="
         section3
         dark:bg-neutral-900
@@ -523,7 +523,7 @@
 
 
       <!-- * Section 4..Routes -->
-      <section>
+      <section id="section4">
         <div class="
         section4
         dark:bg-neutral-900
@@ -1460,7 +1460,7 @@
 
 
       <!-- * section 7..FAQ -->
-      <section>
+      <section id="section7">
         <div class="
         section7
         dark:bg-neutral-900
@@ -1920,16 +1920,62 @@
         </div>
       </section>
 
+      
+      <!-- * Newsletter Signup -->
+      <section class="">
+        <div class="
+        dark:bg-neutral-900
+        flex
+        flex-col
+        items-center
+        px-4
+        py-8
+        gap-6
+        ">
+          <h2 class="
+          text-white 
+          md:text-4xl 
+          font-bold 
+          md:w-[30ch] 
+          text-center
+          ">We provide weekly updates to our website and tracking system.
+        </h2>
+          <p class="text-white text-2xl md:w-[55ch] text-center">Subscribe to our newsletter to get those updates and many useful blogs about different techonologies in today's world</p>
+          <form action="/" method="POST">
+            <input class="
+            py-2
+            px-4
+            rounded-md
+            text-xl
+            placeholder:text-xl
+            outline-none
+            " type="email" required placeholder="Your email address" name="email">
+
+            <button class="
+            text-white 
+            bg-green-400 
+            rounded-md
+            py-2
+            px-4
+            text-xl
+            font-semibold
+            shadow-xl
+            hover:shadow-md
+            ">Subscribe</button>
+          </form>
+        </div>
+      </section>
+
 
       <!-- * section 9...Need help?  -->
-      <section>
+      <section id="section9">
         <div class="
         section9
         dark:bg-neutral-900
         flex
         flex-col
         gap-4
-        items-center
+        items-center  
         text-center
         py-12
         px-4
@@ -2012,7 +2058,7 @@
         text-center
         p-12
         gap-12
-        md:py-56
+        md:py-36
         text-white
         " >
 
@@ -2116,6 +2162,8 @@
       </footer>
     </main>
 
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <script type="module" src="/main.js"></script>
     <script src="https://kit.fontawesome.com/4eaa959a81.js" crossorigin="anonymous"></script>
 
@@ -2142,6 +2190,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" integrity="sha512-f8mwTB+Bs8a5c46DEm7HQLcJuHMBaH/UFlcgyetMqqkvTcYg4g5VXsYR71b3qC82lZytjNYvBj2pf0VekA9/FQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script src="./declare.js"></script>
+
+    <!-- express js -->
+    <script src="./express.js"></script>
 
     <!-- js section to store the trackingNum and lat.lng in localStorage and pass that value to the tracking HTML -->
     <script>
